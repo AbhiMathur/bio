@@ -3,48 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Abhishek | Tech Manager & Architect</title>
+  <title>Abhishek Mathur | Tech Manager & Architect</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    function toggleSection(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle('hidden');
+    }
+  </script>
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans leading-normal tracking-wide">
+<body class="bg-gray-100 text-gray-800 font-sans">
 
-  <div class="max-w-4xl mx-auto p-8">
+  <div class="max-w-5xl mx-auto px-6 py-10">
     <div class="text-center mb-10">
-      <img src="https://avatars.githubusercontent.com/u/000000?v=4" alt="Profile Photo" class="w-32 h-32 mx-auto rounded-full shadow-lg">
-      <h1 class="text-4xl font-bold mt-4">Abhishek</h1>
-      <p class="text-xl text-gray-600">Technical Development Manager | Java & .NET Expert | AI & Cloud Enthusiast</p>
+      <img src="https://github.com/AbhiMathur/bio/main/" alt="Profile Photo" class="w-32 h-32 mx-auto rounded-full shadow-lg">
+      <h1 class="text-4xl font-bold mt-4">Abhishek Mathur</h1>
+      <p class="text-xl text-gray-600">Senior Development Manager | Architect | AI/ML Explorer</p>
+      <div class="mt-4 space-x-4">
+        <a href="mailto:abhishek_mathur@live.com" class="text-blue-600 hover:underline">✉ abhishek_mathur@live.com</a>
+        <span>|</span>
+        <a href="https://www.linkedin.com/in/abhishek-mathur-live/" class="text-blue-600 hover:underline">🔗 LinkedIn</a>
+      </div>
     </div>
 
-    <div class="bg-white rounded-lg shadow-md p-6">
+    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
       <h2 class="text-2xl font-semibold mb-4">About Me</h2>
-      <p class="mb-4">
-        I'm a seasoned technical leader with over 15 years of experience delivering enterprise-grade solutions in Java, .NET, SQL, and emerging technologies. My passion lies in solving complex problems, mentoring teams, and embracing innovation in AI, ML, and cloud-native architecture.
-      </p>
-      <p class="mb-4">
-        Currently exploring AI/ML, Generative AI, and Agentic systems, while also strengthening expertise in Kubernetes, Docker, Microservices, Kafka, and Spring Boot. I enjoy blending core engineering principles with modern tech to build scalable, future-ready platforms.
+      <p>
+        With 15+ years of experience, I lead software development and architecture for cloud-native, scalable, and resilient enterprise platforms.
+        I've migrated monoliths to microservices, implemented event-driven systems with Kafka, and embraced DevOps practices to triple release cadence and cut incident response time by 40%.
       </p>
     </div>
 
-    <div class="bg-white rounded-lg shadow-md p-6 mt-6">
+    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
       <h2 class="text-2xl font-semibold mb-4">Skills</h2>
-      <ul class="grid grid-cols-2 gap-2 text-gray-700">
-        <li>✅ Java, .NET, SQL</li>
-        <li>✅ Spring Boot, Hibernate, JPA</li>
-        <li>✅ Docker, Kubernetes, Jenkins</li>
-        <li>✅ REST APIs, Microservices</li>
-        <li>✅ AI/ML, Generative AI (Learning)</li>
-        <li>✅ Project & Team Management</li>
-        <li>✅ Cloud (AWS, Azure)</li>
-        <li>✅ Kafka, Authentication (OAuth, SSO)</li>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-gray-700">
+        <span>✅ Java, Spring Boot, Hibernate</span>
+        <span>✅ .NET, C#, MVC</span>
+        <span>✅ SQL Server, PostgreSQL</span>
+        <span>✅ Kafka, Docker, Kubernetes</span>
+        <span>✅ Jenkins, Git, Agile</span>
+        <span>✅ Grafana, Zipkin, Monitoring</span>
+      </div>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+      <h2 class="text-2xl font-semibold mb-4">Current Focus: AI & ML</h2>
+      <ul class="list-disc list-inside space-y-2">
+        <li>Understanding ML workflows and pipelines using Python & Scikit-learn</li>
+        <li>Exploring GenAI, RAG, and Agentic AI systems</li>
+        <li>Evaluating integration of AI with Java/.NET backends</li>
+        <li>Experimenting with vector databases & embeddings</li>
+        <li>Designing responsible and explainable AI systems</li>
       </ul>
     </div>
 
-    <div class="bg-white rounded-lg shadow-md p-6 mt-6">
-      <h2 class="text-2xl font-semibold mb-4">Contact</h2>
-      <p>Email: <a href="mailto:your.email@example.com" class="text-blue-500 hover:underline">your.email@example.com</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" class="text-blue-500 hover:underline">linkedin.com/in/yourprofile</a></p>
-      <p>GitHub: <a href="https://github.com/yourgithub" class="text-blue-500 hover:underline">github.com/yourgithub</a></p>
+    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+      <h2 class="text-2xl font-semibold mb-4">Professional Experience</h2>
+      <button class="text-blue-600 font-semibold mb-2" onclick="toggleSection('exp')">Toggle Details</button>
+      <div id="exp" class="space-y-4 hidden">
+        <div>
+          <h3 class="font-bold">Senior Development Manager – Protiviti</h3>
+          <p>Modernized legacy platforms using Spring Boot & Kafka. Led a 30+ member team across cloud-native initiatives.</p>
+        </div>
+        <div>
+          <h3 class="font-bold">Associate Architect – Deloitte</h3>
+          <p>Built monitoring tools, led design reviews, and delivered dashboards using .NET and SQL Server.</p>
+        </div>
+        <div>
+          <h3 class="font-bold">Tech Lead – Q3 Technologies</h3>
+          <p>Migrated ERP platforms and conducted performance/security reviews.</p>
+        </div>
+      </div>
     </div>
+
+    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+      <h2 class="text-2xl font-semibold mb-4">Key Projects</h2>
+      <ul class="list-disc list-inside space-y-2">
+        <li><strong>Successware:</strong> Microservices-based cloud ERP for home service businesses</li>
+        <li><strong>CMP:</strong> Internal analytics dashboard for leadership with full automation</li>
+        <li><strong>QSNET:</strong> School ERP with modules like attendance, exams, admissions</li>
+        <li><strong>Sistema10 ERP:</strong> Secure modular platform for job costing and ops</li>
+        <li><strong>iClinic:</strong> Healthcare app for online/video/in-person consultation</li>
+      </ul>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+      <h2 class="text-2xl font-semibold mb-4">Education</h2>
+      <p><strong>M.Tech, Computer Science</strong> – Jodhpur National University (2014)</p>
+      <p><strong>B.Tech, Computer Science</strong> – Rajasthan University (2009)</p>
+    </div>
+
+    <footer class="text-center text-sm text-gray-500 mt-10">
+      © 2025 Abhishek Mathur • Built with ❤️ and Tailwind CSS
+    </footer>
   </div>
 
 </body>
