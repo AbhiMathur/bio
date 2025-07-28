@@ -1,102 +1,597 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Abhishek Mathur | Tech Manager & Architect</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script>
-    function toggleSection(id) {
-      const el = document.getElementById(id);
-      el.classList.toggle('hidden');
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek Mathur - Senior Development Manager & Architect</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .bio-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.1)"><polygon points="0,0 1000,0 1000,100 0,100"/></svg>');
+            opacity: 0.1;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 1;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .content {
+            padding: 3rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.2s; }
+        .section:nth-child(2) { animation-delay: 0.4s; }
+        .section:nth-child(3) { animation-delay: 0.6s; }
+        .section:nth-child(4) { animation-delay: 0.8s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .achievement-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -10px rgba(102, 126, 234, 0.3);
+        }
+
+        .achievement-card i {
+            color: #667eea;
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-3px);
+        }
+
+        .skill-category h4 {
+            color: #1e3c72;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .experience-timeline {
+            position: relative;
+            margin-top: 2rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        }
+
+        .company {
+            font-weight: 600;
+            color: #1e3c72;
+            font-size: 1.1rem;
+        }
+
+        .role-period {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #667eea;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .education-info {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-top: 1.5rem;
+        }
+
+        .degree {
+            font-weight: 600;
+            color: #1e3c72;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .university {
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .header {
+                padding: 2rem 1rem;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                gap: 1rem;
+            }
+
+            .contact-item {
+                font-size: 0.9rem;
+            }
+
+            .content {
+                padding: 2rem 1rem;
+            }
+
+            .achievements {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans">
+<body>
+    <div class="container">
+        <div class="bio-card">
+            <header class="header">
+                <div class="profile-img">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h1 class="name">Abhishek Mathur</h1>
+                <p class="title">Senior Development Manager & Technical Architect</p>
+                <div class="contact-info">
+                    <a href="tel:+917597088030" class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        +91-7597088030
+                    </a>
+                    <a href="mailto:abhishek_mathur@live.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        abhishek_mathur@live.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/abhishek-mathur-live/" class="contact-item" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                        https://www.linkedin.com/in/abhishek-mathur-live/
+                    </a>
+                </div>
+            </header>
 
-  <div class="max-w-5xl mx-auto px-6 py-10">
-    <div class="text-center mb-10">
-      <img src="https://github.com/AbhiMathur/bio/main/IMG_20230104_132023.jpg" alt="Profile Photo" class="w-32 h-32 mx-auto rounded-full shadow-lg">
-      <h1 class="text-4xl font-bold mt-4">Abhishek Mathur</h1>
-      <p class="text-xl text-gray-600">Senior Development Manager | Architect | AI/ML Explorer</p>
-      <div class="mt-4 space-x-4">
-        <a href="mailto:abhishek_mathur@live.com" class="text-blue-600 hover:underline">✉ abhishek_mathur@live.com</a>
-        <span>|</span>
-        <a href="https://www.linkedin.com/in/abhishek-mathur-live/" class="text-blue-600 hover:underline">🔗 LinkedIn</a>
-      </div>
-    </div>
+            <div class="content">
+                <section class="section">
+                    <h2 class="section-title">Professional Summary</h2>
+                    <p class="summary">
+                        Experienced Technical Architect with 15+ years of expertise in designing and delivering scalable enterprise and cloud-native solutions. I lead architecture for microservices-based ERP and monitoring platforms, aligning technical strategies with business objectives. Expert in Domain-Driven Design, event-driven architecture, and REST/GraphQL API design, with proven success managing 20+ cross-functional engineers in Agile/Scrum environments.
+                    </p>
+                    
+                    <div class="achievements">
+                        <div class="achievement-card">
+                            <i class="fas fa-rocket"></i>
+                            Boosted release cadence by 3× through modernization from monoliths to microservices
+                        </div>
+                        <div class="achievement-card">
+                            <i class="fas fa-chart-line"></i>
+                            Increased team productivity by 35% via process improvements and CI/CD adoption
+                        </div>
+                        <div class="achievement-card">
+                            <i class="fas fa-shield-alt"></i>
+                            Reduced production incidents by 25% with enhanced monitoring and automated alerts
+                        </div>
+                        <div class="achievement-card">
+                            <i class="fas fa-clock"></i>
+                            Achieved 98% on-time delivery rate across 10+ major releases per year
+                        </div>
+                        <div class="achievement-card">
+                            <i class="fas fa-code"></i>
+                            Migrated 200K+ lines of Delphi code to Spring Boot services, increasing deployment frequency 3×
+                        </div>
+                        <div class="achievement-card">
+                            <i class="fas fa-cogs"></i>
+                            Reduced incident MTTR by 40% through event-driven integration and end-to-end tracing
+                        </div>
+                    </div>
+                </section>
 
-    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-      <h2 class="text-2xl font-semibold mb-4">About Me</h2>
-      <p>
-        With 15+ years of experience, I lead software development and architecture for cloud-native, scalable, and resilient enterprise platforms.
-        I've migrated monoliths to microservices, implemented event-driven systems with Kafka, and embraced DevOps practices to triple release cadence and cut incident response time by 40%.
-      </p>
-    </div>
+                <section class="section">
+                    <h2 class="section-title">Technical Expertise</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Languages & Frameworks</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">C#</span>
+                                <span class="skill-tag">.NET</span>
+                                <span class="skill-tag">MVC</span>
+                                <span class="skill-tag">Java</span>
+                                <span class="skill-tag">Spring Boot</span>
+                                <span class="skill-tag">Hibernate</span>
+                                <span class="skill-tag">JPA</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Web & Frontend</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">jQuery</span>
+                                <span class="skill-tag">Angular</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Databases</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">SQL Server</span>
+                                <span class="skill-tag">MySQL</span>
+                                <span class="skill-tag">PostgreSQL</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Cloud & DevOps</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">AWS</span>
+                                <span class="skill-tag">Microservices</span>
+                                <span class="skill-tag">Kafka</span>
+                                <span class="skill-tag">Docker</span>
+                                <span class="skill-tag">Kubernetes</span>
+                                <span class="skill-tag">Grafana</span>
+                                <span class="skill-tag">Zipkin</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-      <h2 class="text-2xl font-semibold mb-4">Skills</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-gray-700">
-        <span>✅ Java, Spring Boot, Hibernate</span>
-        <span>✅ .NET, C#, MVC</span>
-        <span>✅ SQL Server, PostgreSQL</span>
-        <span>✅ Kafka, Docker, Kubernetes</span>
-        <span>✅ Jenkins, Git, Agile</span>
-        <span>✅ Grafana, Zipkin, Monitoring</span>
-      </div>
-    </div>
+                <section class="section">
+                    <h2 class="section-title">Professional Experience</h2>
+                    <div class="experience-timeline">
+                        <div class="timeline-item">
+                            <div class="company">Protiviti Consulting Solution Pvt. Ltd., Gurgaon</div>
+                            <div class="role-period">Senior Development Manager & Architect | May 2020 - Present</div>
+                            <p>Leading a team of 30+ developers and DevOps engineers across multiple enterprise cloud projects. Spearheading modernization initiatives, collaborating with stakeholders to align tech strategy with business goals, and mentoring teams on clean code practices and performance optimization.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="company">Deloitte Support Services India Pvt. Ltd, Hyderabad</div>
+                            <div class="role-period">Technical Lead & Associate Architect | Nov 2018 - April 2020</div>
+                            <p>Guided agile teams in developing monitoring tools and data visualization dashboards. Designed critical components in C#/.NET for enterprise clients and conducted system design sessions for new solution architectures.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="company">Q3 Technologies, Gurgaon</div>
+                            <div class="role-period">Tech Lead | April 2015 - Oct 2018</div>
+                            <p>Developed scalable ERP applications and led legacy system migrations from monolithic VB .NET apps to C# .NET MVC. Supervised code reviews, performance tuning, and security audits.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="company">Queppelin Technology Pvt. Ltd., Jaipur</div>
+                            <div class="role-period">Senior Software Engineer | May 2012 - April 2015</div>
+                            <p>Worked on diverse projects across news and healthcare domains. Successfully converted VB .NET desktop applications to web-based C# .NET applications.</p>
+                        </div>
+                    </div>
+                </section>
 
-    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-      <h2 class="text-2xl font-semibold mb-4">Current Focus: AI & ML</h2>
-      <ul class="list-disc list-inside space-y-2">
-        <li>Understanding ML workflows and pipelines using Python & Scikit-learn</li>
-        <li>Exploring GenAI, RAG, and Agentic AI systems</li>
-        <li>Evaluating integration of AI with Java/.NET backends</li>
-        <li>Experimenting with vector databases & embeddings</li>
-        <li>Designing responsible and explainable AI systems</li>
-      </ul>
-    </div>
+                <section class="section">
+                    <h2 class="section-title">Key Projects</h2>
+                    <div class="project-grid">
+                        <div class="project-card">
+                            <h3 class="project-title">Successware ERP</h3>
+                            <p class="project-description">
+                                Led architectural design of a cloud-hosted ERP solution for small to medium-sized businesses in the trades industry. Built using Java Spring Boot with microservice architecture, offering integrated modules for accounting, invoicing, and inventory management.
+                            </p>
+                        </div>
+                        <div class="project-card">
+                            <h3 class="project-title">Continuous Monitoring Program (CMP)</h3>
+                            <p class="project-description">
+                                Built an automated data ingestion and reporting system using C#, .NET MVC, and SQL Server. Provides leaders with analytical insights into system performance and serves as a centralized platform for managing day-to-day operations.
+                            </p>
+                        </div>
+                        <div class="project-card">
+                            <h3 class="project-title">QSNET - Quick School ERP</h3>
+                            <p class="project-description">
+                                Designed and developed a comprehensive Education Resource Planning solution for schools. The modular system centralizes key functions including attendance, fee management, admissions, and examinations using C# .NET MVC and SQL Server.
+                            </p>
+                        </div>
+                        <div class="project-card">
+                            <h3 class="project-title">iClinic Healthcare Platform</h3>
+                            <p class="project-description">
+                                Developed a web-based healthcare application enabling online appointment booking with specialists. Supports multiple consultation formats (text, video, in-person) and facilitates seamless connections between patients and healthcare professionals.
+                            </p>
+                        </div>
+                    </div>
+                </section>
 
-    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-      <h2 class="text-2xl font-semibold mb-4">Professional Experience</h2>
-      <button class="text-blue-600 font-semibold mb-2" onclick="toggleSection('exp')">Toggle Details</button>
-      <div id="exp" class="space-y-4 hidden">
-        <div>
-          <h3 class="font-bold">Senior Development Manager – Protiviti</h3>
-          <p>Modernized legacy platforms using Spring Boot & Kafka. Led a 30+ member team across cloud-native initiatives.</p>
+                <section class="section">
+                    <h2 class="section-title">Education & Languages</h2>
+                    <div class="education-info">
+                        <div style="margin-bottom: 1.5rem;">
+                            <div class="degree">M.Tech in Computer Science Engineering</div>
+                            <div class="university">Jodhpur National University - 2014 (65%)</div>
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <div class="degree">B.Tech in Computer Science Engineering</div>
+                            <div class="university">Rajasthan University - 2009 (69%)</div>
+                        </div>
+                        <div>
+                            <strong style="color: #1e3c72;">Languages:</strong> English, Hindi
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
-        <div>
-          <h3 class="font-bold">Associate Architect – Deloitte</h3>
-          <p>Built monitoring tools, led design reviews, and delivered dashboards using .NET and SQL Server.</p>
-        </div>
-        <div>
-          <h3 class="font-bold">Tech Lead – Q3 Technologies</h3>
-          <p>Migrated ERP platforms and conducted performance/security reviews.</p>
-        </div>
-      </div>
     </div>
 
-    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-      <h2 class="text-2xl font-semibold mb-4">Key Projects</h2>
-      <ul class="list-disc list-inside space-y-2">
-        <li><strong>Successware:</strong> Microservices-based cloud ERP for home service businesses</li>
-        <li><strong>CMP:</strong> Internal analytics dashboard for leadership with full automation</li>
-        <li><strong>QSNET:</strong> School ERP with modules like attendance, exams, admissions</li>
-        <li><strong>Sistema10 ERP:</strong> Secure modular platform for job costing and ops</li>
-        <li><strong>iClinic:</strong> Healthcare app for online/video/in-person consultation</li>
-      </ul>
-    </div>
+    <script>
+        // Add smooth scrolling and animation triggers
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate sections on scroll
+            const sections = document.querySelectorAll('.section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, { threshold: 0.1 });
 
-    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-      <h2 class="text-2xl font-semibold mb-4">Education</h2>
-      <p><strong>M.Tech, Computer Science</strong> – Jodhpur National University (2014)</p>
-      <p><strong>B.Tech, Computer Science</strong> – Rajasthan University (2009)</p>
-    </div>
+            sections.forEach(section => {
+                observer.observe(section);
+            });
 
-    <footer class="text-center text-sm text-gray-500 mt-10">
-      © 2025 Abhishek Mathur
-    </footer>
-  </div>
-
+            // Add hover effects to cards
+            const cards = document.querySelectorAll('.achievement-card, .skill-category, .project-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
